@@ -123,6 +123,11 @@ class MapViewController: UIViewController {
         
     }
     
+    func removeAllAnnotationsFromMap(mapView: MKMapView) {
+        let allAnnotations = mapView.annotations
+        mapView.removeAnnotations(allAnnotations)
+    }
+    
     @IBAction func pickNewDestination(_ sender: Any) {
         showPlacePicker()
     }
@@ -145,7 +150,9 @@ extension MapViewController: GMSPlacePickerViewControllerDelegate {
             
             weakSelf.mainMapView.removeOverlays(weakSelf.mainMapView.overlays)
             weakSelf.traceRoute(from: userLocation, to: place.coordinate)
-            //TODO: remove pins?
+            
+            // removes all annotations (pins)
+            weakSelf.removeAllAnnotationsFromMap(mapView: weakSelf.mainMapView)
         }
     }
 }
