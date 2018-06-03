@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		3E33137420C37119007F6FCF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33137320C37119007F6FCF /* MapViewController.swift */; };
 		3E33137620C37158007F6FCF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E33137520C37158007F6FCF /* MapKit.framework */; };
-		3E33137920C37B13007F6FCF /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33137820C37B13007F6FCF /* PlaceTableViewCell.swift */; };
 		3E33137C20C398A9007F6FCF /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33137B20C398A9007F6FCF /* RouteDetailView.swift */; };
 		3E33138020C3AB98007F6FCF /* RouteBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33137F20C3AB98007F6FCF /* RouteBadge.swift */; };
+		3E33138220C3B39F007F6FCF /* RouteComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33138120C3B39F007F6FCF /* RouteComments.swift */; };
 		3E43171A20C22AF500808E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43171920C22AF500808E49 /* AppDelegate.swift */; };
 		3E43171C20C22AF500808E49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43171B20C22AF500808E49 /* ViewController.swift */; };
 		3E43171F20C22AF500808E49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E43171D20C22AF500808E49 /* Main.storyboard */; };
 		3E43172120C22AFC00808E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E43172020C22AFC00808E49 /* Assets.xcassets */; };
 		3E43172420C22AFC00808E49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E43172220C22AFC00808E49 /* LaunchScreen.storyboard */; };
+		3EA2145720C3C1B600E2549E /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2145620C3C1B600E2549E /* BadgeCollectionViewCell.swift */; };
+		3EA2145920C3C97000E2549E /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2145820C3C97000E2549E /* BadgeView.swift */; };
 		CE193D96190E889B686514FC /* Pods_UHProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06BCB8D6181A86C3514578A /* Pods_UHProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E33137320C37119007F6FCF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3E33137520C37158007F6FCF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		3E33137820C37B13007F6FCF /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		3E33137B20C398A9007F6FCF /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
 		3E33137F20C3AB98007F6FCF /* RouteBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBadge.swift; sourceTree = "<group>"; };
+		3E33138120C3B39F007F6FCF /* RouteComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteComments.swift; sourceTree = "<group>"; };
 		3E43171620C22AF500808E49 /* UHProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UHProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E43171920C22AF500808E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E43171B20C22AF500808E49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +35,8 @@
 		3E43172020C22AFC00808E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E43172320C22AFC00808E49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E43172520C22AFC00808E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EA2145620C3C1B600E2549E /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		3EA2145820C3C97000E2549E /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		7F2E47F48BFB576CE578E9D7 /* Pods-UHProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UHProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-UHProject/Pods-UHProject.release.xcconfig"; sourceTree = "<group>"; };
 		E1DDAB90F927DD4B139ECE6E /* Pods-UHProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UHProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UHProject/Pods-UHProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F06BCB8D6181A86C3514578A /* Pods_UHProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UHProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +58,7 @@
 		3E33137720C37AC5007F6FCF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3E33137820C37B13007F6FCF /* PlaceTableViewCell.swift */,
+				3EA2145620C3C1B600E2549E /* BadgeCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -63,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				3E33137B20C398A9007F6FCF /* RouteDetailView.swift */,
+				3EA2145820C3C97000E2549E /* BadgeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -71,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				3E33137F20C3AB98007F6FCF /* RouteBadge.swift */,
+				3E33138120C3B39F007F6FCF /* RouteComments.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -205,11 +211,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UHProject/Pods-UHProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/UberCore/UberCore.framework",
 				"${BUILT_PRODUCTS_DIR}/UberRides/UberRides.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UberCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UberRides.framework",
 			);
@@ -265,12 +273,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EA2145920C3C97000E2549E /* BadgeView.swift in Sources */,
 				3E43171C20C22AF500808E49 /* ViewController.swift in Sources */,
 				3E33137C20C398A9007F6FCF /* RouteDetailView.swift in Sources */,
 				3E33137420C37119007F6FCF /* MapViewController.swift in Sources */,
 				3E33138020C3AB98007F6FCF /* RouteBadge.swift in Sources */,
 				3E43171A20C22AF500808E49 /* AppDelegate.swift in Sources */,
-				3E33137920C37B13007F6FCF /* PlaceTableViewCell.swift in Sources */,
+				3EA2145720C3C1B600E2549E /* BadgeCollectionViewCell.swift in Sources */,
+				3E33138220C3B39F007F6FCF /* RouteComments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,10 +428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = UHProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felipeantoniocardoso.UHProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -437,10 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = UHProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felipeantoniocardoso.UHProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

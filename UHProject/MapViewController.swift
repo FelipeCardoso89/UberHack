@@ -19,24 +19,17 @@ class MapViewController: UIViewController {
     @IBOutlet weak var routerDetailView: RouteDetailView!
     
     let locationManager = CLLocationManager()
+    let badges = RouteBadge.badges()
     var isShowingRoute = false
     
-    var routeBadges = [
-        RouteBadge(id:"free-sidewalk", name:"Calçadas Livres", image: ""),
-        RouteBadge(id:"light", name:"Iluminado", image: ""),
-        RouteBadge(id:"people", name:"Local Movimentado", image: ""),
-        RouteBadge(id:"hole-sidewalk", name:"Calçada com buraco", image: ""),
-        RouteBadge(id:"crossing-road", name:"Faixa de pedestre", image: ""),
-        RouteBadge(id:"no-light-sinalization", name:"Sem luz de pedestre", image: ""),
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideBarButton()
         
-        routerDetailView.tableView.delegate = self
-        routerDetailView.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: String(describing: PlaceTableViewCell.self))
+//        routerDetailView.badgeCollectionView.delegate = self
+//        routerDetailView.badgeCollectionView.dataSource = self
         
         mainMapView.delegate = self
         mainMapView.showsScale = true
@@ -121,7 +114,7 @@ class MapViewController: UIViewController {
     func renderWeightedPolyline(mapView: MKMapView, coordinates: [CLLocationCoordinate2D]) {
         
         var i = 0
-        var increment = coordinates.count/3
+        var increment = coordinates.count/4
         while i + increment < coordinates.count {
             var splittedCoordinates = coordinates[i...i+increment]
             
@@ -139,9 +132,6 @@ class MapViewController: UIViewController {
     }
     
     func plotPolyline(route: MKRoute) {
-        
-        print("\(route.steps)")
-        print("\(route.advisoryNotices)")
         
         mainMapView.add(route.polyline)
         
@@ -217,7 +207,7 @@ class MapViewController: UIViewController {
         routerDetailView.isHidden = true
         cancelRoutes()
         hideBarButton()
-        btnNewRoute.setTitle("Nova Destino!", for: .normal)
+        btnNewRoute.setTitle("Novo Destino!", for: .normal)
     }
 }
 
@@ -273,11 +263,11 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         if (overlay is MKPolyline) {
             if mapView.overlays.count == 1 {
-                polylineRenderer.strokeColor = UIColor.black.withAlphaComponent(1.0)
+                polylineRenderer.strokeColor = UIColor.orange.withAlphaComponent(1.0)
             } else if mapView.overlays.count == 2 {
-                polylineRenderer.strokeColor = UIColor.black.withAlphaComponent(0.5)
+                polylineRenderer.strokeColor = UIColor.blue.withAlphaComponent(1.0)
             } else if mapView.overlays.count == 3 {
-                polylineRenderer.strokeColor = UIColor.red
+                polylineRenderer.strokeColor = UIColor.red.withAlphaComponent(1.0)
             }
             polylineRenderer.lineWidth = 5
         }
@@ -285,21 +275,21 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
 }
 
-extension MapViewController: UITableViewDelegate, UITableViewDataSource {
+extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return badges.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PlaceTableViewCell.self)) as? PlaceTableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BadgeCollectionViewCell", for: indexPath) as? BadgeCollectionViewCell {
             return cell
         } else {
-            return UITableViewCell()
+            return UICollectionViewCell()
         }
-        
     }
-
+    
+    
 }
+
 

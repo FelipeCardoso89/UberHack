@@ -11,6 +11,8 @@ import UIKit
 class RouteDetailView: UIView {
     
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var badge1: UIView!
+    @IBOutlet weak var badge2: UIView!
+    @IBOutlet weak var badge3: UIView!
     
 }
