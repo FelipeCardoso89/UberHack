@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="926" y="109"/>
         </scene>
-        <!--NiceWays-->
+        <!--Mapa-->
         <scene sceneID="PNo-QR-UA9">
             <objects>
                 <viewController modalPresentationStyle="currentContext" id="eVm-bV-e6g" customClass="MapViewController" customModule="UHProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -283,7 +283,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZiN-S7-WOw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="NiceWays" id="bm8-FB-Tlp">
+                    <navigationItem key="navigationItem" title="Mapa" id="bm8-FB-Tlp">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="YhR-Hy-ROE">
                             <connections>
                                 <action selector="cancelRouter:" destination="eVm-bV-e6g" id="uz1-5P-8ez"/>
