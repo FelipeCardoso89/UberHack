@@ -19,24 +19,17 @@ class MapViewController: UIViewController {
     @IBOutlet weak var routerDetailView: RouteDetailView!
     
     let locationManager = CLLocationManager()
+    let badges = RouteBadge.badges()
     var isShowingRoute = false
     
-    var routeBadges = [
-        RouteBadge(id:"free-sidewalk", name:"Calçadas Livres", image: ""),
-        RouteBadge(id:"light", name:"Iluminado", image: ""),
-        RouteBadge(id:"people", name:"Local Movimentado", image: ""),
-        RouteBadge(id:"hole-sidewalk", name:"Calçada com buraco", image: ""),
-        RouteBadge(id:"crossing-road", name:"Faixa de pedestre", image: ""),
-        RouteBadge(id:"no-light-sinalization", name:"Sem luz de pedestre", image: ""),
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideBarButton()
         
-        routerDetailView.tableView.delegate = self
-        routerDetailView.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: String(describing: PlaceTableViewCell.self))
+//        routerDetailView.badgeCollectionView.delegate = self
+//        routerDetailView.badgeCollectionView.dataSource = self
         
         mainMapView.delegate = self
         mainMapView.showsScale = true
@@ -265,21 +258,21 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     }
 }
 
-extension MapViewController: UITableViewDelegate, UITableViewDataSource {
+extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return badges.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PlaceTableViewCell.self)) as? PlaceTableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BadgeCollectionViewCell", for: indexPath) as? BadgeCollectionViewCell {
             return cell
         } else {
-            return UITableViewCell()
+            return UICollectionViewCell()
         }
-        
     }
-
+    
+    
 }
+
 

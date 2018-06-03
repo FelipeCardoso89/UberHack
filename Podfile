@@ -10,5 +10,6 @@ target 'UHProject' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
+  pod 'Cosmos', '~> 16.0'
 
 end
