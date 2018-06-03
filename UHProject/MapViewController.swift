@@ -21,6 +21,15 @@ class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     var isShowingRoute = false
     
+    var routeBadges = [
+        RouteBadge(id:"free-sidewalk", name:"Calçadas Livres", image: ""),
+        RouteBadge(id:"light", name:"Iluminado", image: ""),
+        RouteBadge(id:"people", name:"Local Movimentado", image: ""),
+        RouteBadge(id:"hole-sidewalk", name:"Calçada com buraco", image: ""),
+        RouteBadge(id:"crossing-road", name:"Faixa de pedestre", image: ""),
+        RouteBadge(id:"no-light-sinalization", name:"Sem luz de pedestre", image: ""),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +93,28 @@ class MapViewController: UIViewController {
             
             for i in 0..<response.routes.count {
                 self.plotPolyline(route: response.routes[i])
+                self.renderWeightedPolyline(mapView: self.mainMapView, coordinates: response.routes[i].polyline.coordinates)
             }
+        }
+    }
+    
+    func renderWeightedPolyline(mapView: MKMapView, coordinates: [CLLocationCoordinate2D]) {
+        
+        var i = 0
+        var increment = coordinates.count/3
+        while i + increment < coordinates.count {
+            var splittedCoordinates = coordinates[i...i+increment]
+            
+            let geodesic = MKPolyline(coordinates: Array(splittedCoordinates), count: splittedCoordinates.count)
+            mapView.add(geodesic)
+            
+            let polylineBoundingRect =  MKMapRectUnion(mainMapView.visibleMapRect, geodesic.boundingMapRect)
+            mainMapView.setVisibleMapRect(
+                polylineBoundingRect,
+                edgePadding: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0),
+                animated: false)
+            
+            i += increment
         }
     }
     
@@ -94,6 +124,8 @@ class MapViewController: UIViewController {
         print("\(route.advisoryNotices)")
         
         mainMapView.add(route.polyline)
+        
+        self.placeStartAndEndPin(mapView: mainMapView, userLocation: route.polyline.coordinates[0], destinationLocation: route.polyline.coordinates.last!)
         
         if mainMapView.overlays.count == 1 {
             mainMapView.setVisibleMapRect(
@@ -116,6 +148,7 @@ class MapViewController: UIViewController {
     
     func cancelRoutes() {
         mainMapView.removeOverlays(mainMapView.overlays)
+        removeAllAnnotationsFromMap(mapView: mainMapView)
     }
     
     
@@ -131,6 +164,23 @@ class MapViewController: UIViewController {
     func hideBarButton() {
         btnCancelRoute.isEnabled = false
         btnCancelRoute.tintColor = UIColor.clear
+    }
+    
+    private func placeStartAndEndPin(mapView: MKMapView, userLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
+        
+        let userAnnotation = MKPointAnnotation()
+        userAnnotation.coordinate = CLLocationCoordinate2D(latitude: userLocation.latitude, longitude: userLocation.longitude)
+        mapView.addAnnotation(userAnnotation)
+        
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.coordinate = CLLocationCoordinate2D(latitude: destinationLocation.latitude, longitude: destinationLocation.longitude)
+        mapView.addAnnotation(destinationAnnotation)
+        
+    }
+    
+    func removeAllAnnotationsFromMap(mapView: MKMapView) {
+        let allAnnotations = mapView.annotations
+        mapView.removeAnnotations(allAnnotations)
     }
     
     @IBAction func pickNewDestination(_ sender: Any) {
@@ -151,6 +201,7 @@ class MapViewController: UIViewController {
     }
 }
 
+
 extension MapViewController: GMSPlacePickerViewControllerDelegate {
     
     func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
@@ -165,7 +216,6 @@ extension MapViewController: GMSPlacePickerViewControllerDelegate {
             weakSelf.isShowingRoute = false
         }
     }
-    
     
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
         viewController.dismiss(animated: true) {
@@ -183,6 +233,17 @@ extension MapViewController: GMSPlacePickerViewControllerDelegate {
             weakSelf.traceRoute(from: userLocation, to: place.coordinate)
             weakSelf.showRouteDetail(for: place)
         }
+    }
+}
+
+public extension MKPolyline {
+    public var coordinates: [CLLocationCoordinate2D] {
+        var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid,
+                                              count: self.pointCount)
+        
+        self.getCoordinates(&coords, range: NSRange(location: 0, length: self.pointCount))
+        
+        return coords
     }
 }
 
