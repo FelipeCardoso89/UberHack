@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class BadgeView: MKAnnotationView {
+class BadgeAnnotationView: MKAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             guard let badge = newValue as? Badge else {return}

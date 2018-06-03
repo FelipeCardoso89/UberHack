@@ -44,7 +44,7 @@ class MapViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
         
-        mainMapView.register(BadgeView.self,
+        mainMapView.register(BadgeAnnotationView.self,
                              forAnnotationViewWithReuseIdentifier: "marker")
         
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
@@ -195,8 +195,11 @@ class MapViewController: UIViewController {
         
         if routerDetailView.isHidden {
             showPlacePicker()
+        } else if ( btnNewRoute.currentTitle == "") {
+            //mover usuário
         } else {
             btnNewRoute.setTitle("Encerrar caminhada!", for: .normal)
+            routerDetailView.isHidden = true
             print("Start route!")
         }
     }
