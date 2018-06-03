@@ -1,5 +1,9 @@
 PODS:
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
   - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
   - UberCore (0.10.0)
@@ -7,11 +11,12 @@ PODS:
     - UberCore
 
 DEPENDENCIES:
+  - GoogleMaps
   - GooglePlaces
   - UberRides (~> 0.9)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - GoogleMaps
     - GooglePlaces
     - UberCore
@@ -23,6 +28,6 @@ SPEC CHECKSUMS:
   UberCore: 512950407dadc8045a583e4a509da2750ae7dc21
   UberRides: cc6d7c5232966e45229dda1534106b33e379dfbe
 
-PODFILE CHECKSUM: 93b5aab2a21e20955a59b85b09ffd7301b7931b7
+PODFILE CHECKSUM: 927f59580aa6a9ba2ef50ff6c976aec37fa672c9
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0
