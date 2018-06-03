@@ -113,9 +113,6 @@ class MapViewController: UIViewController {
     
     func plotPolyline(route: MKRoute) {
         
-        print("\(route.steps)")
-        print("\(route.advisoryNotices)")
-        
         mainMapView.add(route.polyline)
         
         self.placeStartAndEndPin(mapView: mainMapView, userLocation: route.polyline.coordinates[0], destinationLocation: route.polyline.coordinates.last!)
