@@ -1,24 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aqX-Rx-HWU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Item 2-->
+        <scene sceneID="UMy-8E-AuD">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="xCR-Kr-xDl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EiA-Gx-dJd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OxW-N9-u5g"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="5Nj-Kg-qfV"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUZ-a7-dQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1025" y="442"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="0b9-1p-an4">
+            <objects>
+                <navigationController id="bJx-Jo-GSA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="lWX-os-I3H"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3d8-o9-azQ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eVm-bV-e6g" kind="relationship" relationship="rootViewController" id="P7W-AE-PPK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rfp-wb-uKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-346"/>
+        </scene>
+        <!--Mapa-->
+        <scene sceneID="PNo-QR-UA9">
+            <objects>
+                <viewController id="eVm-bV-e6g" customClass="MapViewController" customModule="UHProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AX9-wh-zg3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VcR-Bu-PAj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd0-ez-LWf">
+                                <rect key="frame" x="97.5" y="526" width="179" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="b18-Fa-0bc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
+                                <state key="normal" title="Novo Destino">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickNewDestination:" destination="eVm-bV-e6g" eventType="touchUpInside" id="2KB-mp-7Ed"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VcR-Bu-PAj" firstAttribute="leading" secondItem="ZiN-S7-WOw" secondAttribute="leading" id="4Ek-Gq-Mhb"/>
+                            <constraint firstItem="ZiN-S7-WOw" firstAttribute="bottom" secondItem="VcR-Bu-PAj" secondAttribute="bottom" id="NrX-Ab-1sw"/>
+                            <constraint firstItem="ZiN-S7-WOw" firstAttribute="bottom" secondItem="Dd0-ez-LWf" secondAttribute="bottom" constant="32" id="fdV-ru-oiv"/>
+                            <constraint firstItem="Dd0-ez-LWf" firstAttribute="centerX" secondItem="AX9-wh-zg3" secondAttribute="centerX" id="hEm-YL-3gb"/>
+                            <constraint firstItem="VcR-Bu-PAj" firstAttribute="top" secondItem="ZiN-S7-WOw" secondAttribute="top" id="hWA-a6-7Em"/>
+                            <constraint firstItem="ZiN-S7-WOw" firstAttribute="trailing" secondItem="VcR-Bu-PAj" secondAttribute="trailing" id="wd5-53-fXo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZiN-S7-WOw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mapa" id="bm8-FB-Tlp"/>
+                    <connections>
+                        <outlet property="mainMapView" destination="VcR-Bu-PAj" id="j4g-Zq-nD6"/>
+                        <outlet property="searchDisplayController" destination="KrK-GL-wxG" id="Hbm-3c-zDT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wdl-Gu-g7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="KrK-GL-wxG">
+                    <connections>
+                        <outlet property="delegate" destination="eVm-bV-e6g" id="bFR-cr-Da8"/>
+                        <outlet property="searchContentsController" destination="eVm-bV-e6g" id="rKw-5O-3tE"/>
+                        <outlet property="searchResultsDataSource" destination="eVm-bV-e6g" id="03d-ZO-04f"/>
+                        <outlet property="searchResultsDelegate" destination="eVm-bV-e6g" id="Sat-Y0-KH0"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1848.8" y="-347.67616191904051"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Zd2-eb-jqu">
+            <objects>
+                <tabBarController id="aqX-Rx-HWU" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cfA-Mb-ed7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bJx-Jo-GSA" kind="relationship" relationship="viewControllers" id="elg-Kd-nWW"/>
+                        <segue destination="xCR-Kr-xDl" kind="relationship" relationship="viewControllers" id="9Dy-eY-bk1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WfE-Pg-ZMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="110"/>
         </scene>
     </scenes>
 </document>

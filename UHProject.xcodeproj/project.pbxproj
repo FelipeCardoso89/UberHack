@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E33137420C37119007F6FCF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33137320C37119007F6FCF /* MapViewController.swift */; };
+		3E33137620C37158007F6FCF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E33137520C37158007F6FCF /* MapKit.framework */; };
+		3E33137920C37B13007F6FCF /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33137820C37B13007F6FCF /* PlaceTableViewCell.swift */; };
 		3E43171A20C22AF500808E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43171920C22AF500808E49 /* AppDelegate.swift */; };
 		3E43171C20C22AF500808E49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43171B20C22AF500808E49 /* ViewController.swift */; };
 		3E43171F20C22AF500808E49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E43171D20C22AF500808E49 /* Main.storyboard */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E33137320C37119007F6FCF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3E33137520C37158007F6FCF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3E33137820C37B13007F6FCF /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		3E43171620C22AF500808E49 /* UHProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UHProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E43171920C22AF500808E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E43171B20C22AF500808E49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E33137620C37158007F6FCF /* MapKit.framework in Frameworks */,
 				CE193D96190E889B686514FC /* Pods_UHProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E33137720C37AC5007F6FCF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E33137820C37B13007F6FCF /* PlaceTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		3E43170D20C22AF500808E49 = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +76,10 @@
 		3E43171820C22AF500808E49 /* UHProject */ = {
 			isa = PBXGroup;
 			children = (
+				3E33137720C37AC5007F6FCF /* Cells */,
 				3E43171920C22AF500808E49 /* AppDelegate.swift */,
 				3E43171B20C22AF500808E49 /* ViewController.swift */,
+				3E33137320C37119007F6FCF /* MapViewController.swift */,
 				3E43171D20C22AF500808E49 /* Main.storyboard */,
 				3E43172020C22AFC00808E49 /* Assets.xcassets */,
 				3E43172220C22AFC00808E49 /* LaunchScreen.storyboard */,
@@ -83,6 +100,7 @@
 		BCC53C1402F55D97B4735843 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E33137520C37158007F6FCF /* MapKit.framework */,
 				F06BCB8D6181A86C3514578A /* Pods_UHProject.framework */,
 			);
 			name = Frameworks;
@@ -204,11 +222,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UHProject/Pods-UHProject-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +244,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E43171C20C22AF500808E49 /* ViewController.swift in Sources */,
+				3E33137420C37119007F6FCF /* MapViewController.swift in Sources */,
 				3E43171A20C22AF500808E49 /* AppDelegate.swift in Sources */,
+				3E33137920C37B13007F6FCF /* PlaceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,10 +394,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = UHProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felipeantoniocardoso.UHProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -391,10 +410,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = UHProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felipeantoniocardoso.UHProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

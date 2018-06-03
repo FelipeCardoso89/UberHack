@@ -8,6 +8,7 @@ target 'UHProject' do
   # Pods for UHProject
   pod 'UberRides', '~> 0.9'
   pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
   pod 'GoogleMaps'
 
 end
