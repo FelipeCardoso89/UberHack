@@ -21,12 +21,13 @@ class MapViewController: UIViewController {
     let locationManager = CLLocationManager()
     let badges = RouteBadge.badges()
     var isShowingRoute = false
-    
+    var isInitialized = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideBarButton()
+        generateAnnoLoc()
         
 //        routerDetailView.badgeCollectionView.delegate = self
 //        routerDetailView.badgeCollectionView.dataSource = self
@@ -49,7 +50,6 @@ class MapViewController: UIViewController {
         self.mainMapView.addGestureRecognizer(longPressGesture)
 
         mainMapView.addGestureRecognizer(longPressGesture)
-
         
     }
     
@@ -193,6 +193,58 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(allAnnotations)
     }
     
+    func generateAnnoLoc() {
+        
+        var num = 0
+        //First we declare While to repeat adding Annotation
+        while num != 15 {
+            num += 1
+            
+            //Add Annotation
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = generateRandomCoordinates(min: 1000, max: 1000) //this will be the maximum and minimum distance of the annotation from the current Location (Meters)
+            annotation.title = "Ocorrências"
+            annotation.subtitle = "Usuário reportou algo acontecido aqui!"
+            mainMapView.addAnnotation(annotation)
+            
+        }
+        
+    }
+    
+    func generateRandomCoordinates(min: UInt32, max: UInt32)-> CLLocationCoordinate2D {
+        //Get the Current Location's longitude and latitude
+        let currentLong = locationManager.location?.coordinate.longitude
+        let currentLat = locationManager.location?.coordinate.latitude
+        
+        //1 KiloMeter = 0.00900900900901° So, 1 Meter = 0.00900900900901 / 1000
+        let meterCord = 0.00900900900901 / 1000
+        
+        //Generate random Meters between the maximum and minimum Meters
+        let randomMeters = UInt(arc4random_uniform(max) + min)
+        
+        //then Generating Random numbers for different Methods
+        let randomPM = arc4random_uniform(6)
+        
+        //Then we convert the distance in meters to coordinates by Multiplying number of meters with 1 Meter Coordinate
+        let metersCordN = meterCord * Double(randomMeters)
+        
+        //here we generate the last Coordinates
+        if randomPM == 0 {
+            return CLLocationCoordinate2D(latitude: currentLat! + metersCordN, longitude: currentLong! + metersCordN)
+        }else if randomPM == 1 {
+            return CLLocationCoordinate2D(latitude: currentLat! - metersCordN, longitude: currentLong! - metersCordN)
+        }else if randomPM == 2 {
+            return CLLocationCoordinate2D(latitude: currentLat! + metersCordN, longitude: currentLong! - metersCordN)
+        }else if randomPM == 3 {
+            return CLLocationCoordinate2D(latitude: currentLat! - metersCordN, longitude: currentLong! + metersCordN)
+        }else if randomPM == 4 {
+            return CLLocationCoordinate2D(latitude: currentLat!, longitude: currentLong! - metersCordN)
+        }else {
+            return CLLocationCoordinate2D(latitude: currentLat! - metersCordN, longitude: currentLong!)
+        }
+        
+    }
+    
     @IBAction func pickNewDestination(_ sender: Any) {
         
         if routerDetailView.isHidden {
@@ -259,6 +311,24 @@ public extension MKPolyline {
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
 
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !isInitialized {
+            // Here is called only once
+            isInitialized = true
+            
+            let userLoction: CLLocation = locations[0]
+            let latitude = userLoction.coordinate.latitude
+            let longitude = userLoction.coordinate.longitude
+            let latDelta: CLLocationDegrees = 0.05
+            let lonDelta: CLLocationDegrees = 0.05
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+            let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+            mainMapView.setRegion(region, animated: true)
+            mainMapView.showsUserLocation = true
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         if (overlay is MKPolyline) {

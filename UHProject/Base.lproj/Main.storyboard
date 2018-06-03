@@ -10,11 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--MAPA-->
         <scene sceneID="0b9-1p-an4">
             <objects>
                 <navigationController id="bJx-Jo-GSA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lWX-os-I3H"/>
+                    <tabBarItem key="tabBarItem" title="MAPA" selectedImage="map_marker" id="lWX-os-I3H">
+                        <color key="badgeColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3d8-o9-azQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -63,7 +65,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="VcR-Bu-PAj" secondAttribute="trailing" id="MDm-0Z-F0R"/>
-                                            <constraint firstAttribute="bottom" secondItem="Dd0-ez-LWf" secondAttribute="bottom" constant="8" id="N46-mh-E5Z"/>
+                                            <constraint firstAttribute="bottom" secondItem="Dd0-ez-LWf" secondAttribute="bottom" constant="32" id="N46-mh-E5Z"/>
                                             <constraint firstItem="VcR-Bu-PAj" firstAttribute="top" secondItem="CGo-Ek-GkV" secondAttribute="top" id="aJ6-4i-xPm"/>
                                             <constraint firstItem="Dd0-ez-LWf" firstAttribute="centerX" secondItem="CGo-Ek-GkV" secondAttribute="centerX" id="krX-98-KWu"/>
                                             <constraint firstItem="VcR-Bu-PAj" firstAttribute="leading" secondItem="CGo-Ek-GkV" secondAttribute="leading" id="w8U-9a-x56"/>
@@ -312,7 +314,7 @@
         <scene sceneID="Zd2-eb-jqu">
             <objects>
                 <tabBarController id="aqX-Rx-HWU" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cfA-Mb-ed7">
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cfA-Mb-ed7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,6 +330,7 @@
     </scenes>
     <resources>
         <image name="light" width="512" height="512"/>
+        <image name="map_marker" width="30" height="30"/>
         <image name="sidewalk" width="217" height="232"/>
         <image name="walkway" width="1024" height="573"/>
     </resources>
