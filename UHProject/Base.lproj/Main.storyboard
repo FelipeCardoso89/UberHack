@@ -51,39 +51,110 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VcR-Bu-PAj">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nev-dg-WLq">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd0-ez-LWf">
-                                <rect key="frame" x="97.5" y="526" width="179" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGo-Ek-GkV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VcR-Bu-PAj">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                            </mapView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd0-ez-LWf">
+                                                <rect key="frame" x="98" y="502" width="179" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="bWh-2W-aFp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
+                                                <state key="normal" title="Novo Destino">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pickNewDestination:" destination="eVm-bV-e6g" eventType="touchUpInside" id="2KB-mp-7Ed"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="VcR-Bu-PAj" secondAttribute="trailing" id="MDm-0Z-F0R"/>
+                                            <constraint firstAttribute="bottom" secondItem="Dd0-ez-LWf" secondAttribute="bottom" constant="8" id="N46-mh-E5Z"/>
+                                            <constraint firstItem="VcR-Bu-PAj" firstAttribute="top" secondItem="CGo-Ek-GkV" secondAttribute="top" id="aJ6-4i-xPm"/>
+                                            <constraint firstItem="Dd0-ez-LWf" firstAttribute="centerX" secondItem="CGo-Ek-GkV" secondAttribute="centerX" id="krX-98-KWu"/>
+                                            <constraint firstItem="VcR-Bu-PAj" firstAttribute="leading" secondItem="CGo-Ek-GkV" secondAttribute="leading" id="w8U-9a-x56"/>
+                                            <constraint firstAttribute="bottom" secondItem="VcR-Bu-PAj" secondAttribute="bottom" id="yi6-eg-Lrv"/>
+                                        </constraints>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUf-sp-lss" customClass="RouteDetailView" customModule="UHProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="554" width="375" height="280"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="street address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryc-me-WRQ">
+                                                <rect key="frame" x="8" y="8" width="359" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CZf-sQ-Ine">
+                                                <rect key="frame" x="0.0" y="37.5" width="375" height="242.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yx7-cX-sJr">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yx7-cX-sJr" id="u3w-Eb-e8K">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ryc-me-WRQ" secondAttribute="trailing" constant="8" id="FQH-fJ-Ees"/>
+                                            <constraint firstItem="CZf-sQ-Ine" firstAttribute="top" secondItem="ryc-me-WRQ" secondAttribute="bottom" constant="8" id="JXL-sa-jgr"/>
+                                            <constraint firstItem="ryc-me-WRQ" firstAttribute="top" secondItem="wUf-sp-lss" secondAttribute="top" constant="8" id="W9K-h9-MkS"/>
+                                            <constraint firstAttribute="height" constant="280" id="Wlr-RW-k3p"/>
+                                            <constraint firstAttribute="trailing" secondItem="CZf-sQ-Ine" secondAttribute="trailing" id="XFV-Pf-A86"/>
+                                            <constraint firstAttribute="bottom" secondItem="CZf-sQ-Ine" secondAttribute="bottom" id="fT9-lC-tGJ"/>
+                                            <constraint firstItem="ryc-me-WRQ" firstAttribute="leading" secondItem="wUf-sp-lss" secondAttribute="leading" constant="8" id="r2e-6X-xut"/>
+                                            <constraint firstItem="CZf-sQ-Ine" firstAttribute="leading" secondItem="wUf-sp-lss" secondAttribute="leading" id="zWA-vZ-S7g"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="tableView" destination="CZf-sQ-Ine" id="cX2-eR-bIc"/>
+                                            <outlet property="title" destination="ryc-me-WRQ" id="vgd-ww-ycH"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="b18-Fa-0bc"/>
+                                    <constraint firstItem="wUf-sp-lss" firstAttribute="leading" secondItem="nev-dg-WLq" secondAttribute="leading" id="aEI-OK-yaS"/>
+                                    <constraint firstAttribute="trailing" secondItem="wUf-sp-lss" secondAttribute="trailing" id="an1-s1-INh"/>
+                                    <constraint firstItem="wUf-sp-lss" firstAttribute="top" secondItem="CGo-Ek-GkV" secondAttribute="bottom" id="hFc-u6-Vtb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <inset key="contentEdgeInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
-                                <state key="normal" title="Novo Destino">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="pickNewDestination:" destination="eVm-bV-e6g" eventType="touchUpInside" id="2KB-mp-7Ed"/>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VcR-Bu-PAj" firstAttribute="leading" secondItem="ZiN-S7-WOw" secondAttribute="leading" id="4Ek-Gq-Mhb"/>
-                            <constraint firstItem="ZiN-S7-WOw" firstAttribute="bottom" secondItem="VcR-Bu-PAj" secondAttribute="bottom" id="NrX-Ab-1sw"/>
-                            <constraint firstItem="ZiN-S7-WOw" firstAttribute="bottom" secondItem="Dd0-ez-LWf" secondAttribute="bottom" constant="32" id="fdV-ru-oiv"/>
-                            <constraint firstItem="Dd0-ez-LWf" firstAttribute="centerX" secondItem="AX9-wh-zg3" secondAttribute="centerX" id="hEm-YL-3gb"/>
-                            <constraint firstItem="VcR-Bu-PAj" firstAttribute="top" secondItem="ZiN-S7-WOw" secondAttribute="top" id="hWA-a6-7Em"/>
-                            <constraint firstItem="ZiN-S7-WOw" firstAttribute="trailing" secondItem="VcR-Bu-PAj" secondAttribute="trailing" id="wd5-53-fXo"/>
+                            <constraint firstItem="nev-dg-WLq" firstAttribute="leading" secondItem="ZiN-S7-WOw" secondAttribute="leading" id="ABk-7P-eWX"/>
+                            <constraint firstItem="nev-dg-WLq" firstAttribute="trailing" secondItem="ZiN-S7-WOw" secondAttribute="trailing" id="DmJ-kH-XZ7"/>
+                            <constraint firstItem="nev-dg-WLq" firstAttribute="top" secondItem="ZiN-S7-WOw" secondAttribute="top" id="EJK-RY-hmF"/>
+                            <constraint firstItem="nev-dg-WLq" firstAttribute="bottom" secondItem="ZiN-S7-WOw" secondAttribute="bottom" id="Lrf-7J-8Mb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZiN-S7-WOw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Mapa" id="bm8-FB-Tlp"/>
+                    <navigationItem key="navigationItem" title="Mapa" id="bm8-FB-Tlp">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="YhR-Hy-ROE">
+                            <connections>
+                                <action selector="cancelRouter:" destination="eVm-bV-e6g" id="uz1-5P-8ez"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="btnCancelRoute" destination="YhR-Hy-ROE" id="HCf-Vx-ukJ"/>
+                        <outlet property="btnNewRoute" destination="Dd0-ez-LWf" id="60Y-RI-wyQ"/>
                         <outlet property="mainMapView" destination="VcR-Bu-PAj" id="j4g-Zq-nD6"/>
+                        <outlet property="routerDetailView" destination="wUf-sp-lss" id="7g0-ek-bMb"/>
                         <outlet property="searchDisplayController" destination="KrK-GL-wxG" id="Hbm-3c-zDT"/>
                     </connections>
                 </viewController>
