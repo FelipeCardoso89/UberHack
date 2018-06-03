@@ -27,10 +27,6 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
         super.viewDidLoad()
         
         hideBarButton()
-        generateAnnoLoc()
-        
-//        routerDetailView.badgeCollectionView.delegate = self
-//        routerDetailView.badgeCollectionView.dataSource = self
         
         mainMapView.delegate = self
         mainMapView.showsScale = true
@@ -52,6 +48,7 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
         longPressGesture.minimumPressDuration = 0.5
         
         mainMapView.addGestureRecognizer(longPressGesture)
+        generateAnnoLoc()
         
     }
     
@@ -244,39 +241,40 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
         
     }
     
-    @IBAction func pickNewDestination(_ sender: Any) {
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    @IBAction func pickNewDestination(_ sender: UIButton) {
         
-        if routerDetailView.isHidden {
+        if ( btnNewRoute.currentTitle == "Encerrar caminhada!") {
+            cancelRouter(nil)
+        } else if routerDetailView.isHidden {
             showPlacePicker()
-        } else if ( btnNewRoute.currentTitle == "Encerrar caminhada!") {
-            
-            //TODO: mover usuário
-            
-            let controller = PopupViewController()
-            controller.modalPresentationStyle = UIModalPresentationStyle.popover
-            let popController = controller.popoverPresentationController
-            popController?.permittedArrowDirections = .any
-            popController?.delegate = self
-            
-            self.present(controller, animated: true, completion: nil)
-
-        } else {
+        } else  {
             btnNewRoute.setTitle("Encerrar caminhada!", for: .normal)
             routerDetailView.isHidden = true
+            hideBarButton()
             print("Start route!")
         }
     }
     
-    @IBAction func cancelRouter(_ sender: Any) {
+    @IBAction func cancelRouter(_ sender: Any?) {
         routerDetailView.isHidden = true
         cancelRoutes()
         hideBarButton()
         btnNewRoute.setTitle("Novo Destino!", for: .normal)
     }
+
+    
 }
 
 
-extension MapViewController: GMSPlacePickerViewControllerDelegate {
+extension MapViewController: GMSPlacePickerViewControllerDelegate, UIPopoverControllerDelegate {
     
     func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
         viewController.dismiss(animated: true) {

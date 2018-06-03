@@ -16,9 +16,10 @@
 		3E43171C20C22AF500808E49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E43171B20C22AF500808E49 /* ViewController.swift */; };
 		3E43171F20C22AF500808E49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E43171D20C22AF500808E49 /* Main.storyboard */; };
 		3E43172120C22AFC00808E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E43172020C22AFC00808E49 /* Assets.xcassets */; };
-		3E43172420C22AFC00808E49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E43172220C22AFC00808E49 /* LaunchScreen.storyboard */; };
 		3EA2145720C3C1B600E2549E /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2145620C3C1B600E2549E /* BadgeCollectionViewCell.swift */; };
 		3EA2145920C3C97000E2549E /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2145820C3C97000E2549E /* BadgeView.swift */; };
+		3EA2145B20C3FAF300E2549E /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2145A20C3FAF300E2549E /* RatingViewController.swift */; };
+		3EA2145D20C3FD0C00E2549E /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EA2145C20C3FD0C00E2549E /* RatingViewController.xib */; };
 		CE193D96190E889B686514FC /* Pods_UHProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06BCB8D6181A86C3514578A /* Pods_UHProject.framework */; };
 		D81CC4AC20C3EC5200B78527 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC4AB20C3EC5200B78527 /* PopupViewController.swift */; };
 		D8251BBB20C3D35C009B9B8A /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8251BBA20C3D35C009B9B8A /* Badge.swift */; };
@@ -36,10 +37,11 @@
 		3E43171B20C22AF500808E49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3E43171E20C22AF500808E49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E43172020C22AFC00808E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3E43172320C22AFC00808E49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E43172520C22AFC00808E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EA2145620C3C1B600E2549E /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3EA2145820C3C97000E2549E /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		3EA2145A20C3FAF300E2549E /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		3EA2145C20C3FD0C00E2549E /* RatingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
 		7F2E47F48BFB576CE578E9D7 /* Pods-UHProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UHProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-UHProject/Pods-UHProject.release.xcconfig"; sourceTree = "<group>"; };
 		D81CC4AB20C3EC5200B78527 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		D8251BBA20C3D35C009B9B8A /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				3E33137B20C398A9007F6FCF /* RouteDetailView.swift */,
 				3EA2145820C3C97000E2549E /* BadgeView.swift */,
+				3EA2145C20C3FD0C00E2549E /* RatingViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,11 +119,11 @@
 				3E33137320C37119007F6FCF /* MapViewController.swift */,
 				3E43171D20C22AF500808E49 /* Main.storyboard */,
 				3E43172020C22AFC00808E49 /* Assets.xcassets */,
-				3E43172220C22AFC00808E49 /* LaunchScreen.storyboard */,
 				3E43172520C22AFC00808E49 /* Info.plist */,
 				D8251BBA20C3D35C009B9B8A /* Badge.swift */,
 				D8251BBC20C3D36A009B9B8A /* BadgeAnnotationView.swift */,
 				D81CC4AB20C3EC5200B78527 /* PopupViewController.swift */,
+				3EA2145A20C3FAF300E2549E /* RatingViewController.swift */,
 			);
 			path = UHProject;
 			sourceTree = "<group>";
@@ -204,8 +207,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E43172420C22AFC00808E49 /* LaunchScreen.storyboard in Resources */,
 				3E43172120C22AFC00808E49 /* Assets.xcassets in Resources */,
+				3EA2145D20C3FD0C00E2549E /* RatingViewController.xib in Resources */,
 				3E43171F20C22AF500808E49 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +294,7 @@
 				3E33137420C37119007F6FCF /* MapViewController.swift in Sources */,
 				3E33138020C3AB98007F6FCF /* RouteBadge.swift in Sources */,
 				3E43171A20C22AF500808E49 /* AppDelegate.swift in Sources */,
+				3EA2145B20C3FAF300E2549E /* RatingViewController.swift in Sources */,
 				3EA2145720C3C1B600E2549E /* BadgeCollectionViewCell.swift in Sources */,
 				3E33138220C3B39F007F6FCF /* RouteComments.swift in Sources */,
 			);
@@ -305,14 +309,6 @@
 				3E43171E20C22AF500808E49 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3E43172220C22AFC00808E49 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3E43172320C22AFC00808E49 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -437,6 +433,7 @@
 			baseConfigurationReference = E1DDAB90F927DD4B139ECE6E /* Pods-UHProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = UHProject/Info.plist;
@@ -456,6 +453,7 @@
 			baseConfigurationReference = 7F2E47F48BFB576CE578E9D7 /* Pods-UHProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = UHProject/Info.plist;
