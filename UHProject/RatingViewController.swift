@@ -10,12 +10,19 @@ import UIKit
 
 class RatingViewController: UIViewController {
 
+    @IBOutlet weak var btnAvaliar: UIButton!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

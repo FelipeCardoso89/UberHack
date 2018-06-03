@@ -23,6 +23,11 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
     var isShowingRoute = false
     var isInitialized = false
     
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle {
+        return .none
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -252,6 +257,7 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
     @IBAction func pickNewDestination(_ sender: UIButton) {
         
         if ( btnNewRoute.currentTitle == "Encerrar caminhada!") {
+            self.performSegue(withIdentifier: "rating", sender: self)
             cancelRouter(nil)
         } else if routerDetailView.isHidden {
             showPlacePicker()
@@ -270,7 +276,18 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
         btnNewRoute.setTitle("Novo Destino!", for: .normal)
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "rating" {
+            let dest  = segue.destination
+            dest.preferredContentSize = CGSize(width: 300, height: 300)
+            guard let pop = dest.popoverPresentationController else {
+                return
+            }
+            
+            pop.delegate = self
+        }
+    }
+
 }
 
 
