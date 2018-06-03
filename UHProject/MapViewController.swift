@@ -44,6 +44,26 @@ class MapViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
         
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
+        longPressGesture.minimumPressDuration = 0.5
+        self.mainMapView.addGestureRecognizer(longPressGesture)
+
+        mainMapView.addGestureRecognizer(longPressGesture)
+
+        
+    }
+    
+    @objc func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .ended {
+            let point = gesture.location(in: self.mainMapView)
+            let coordinate = self.mainMapView.convert(point, toCoordinateFrom: self.mainMapView)
+            print(coordinate)
+            var annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "Title"
+            annotation.subtitle = "subtitle"
+            self.mainMapView.addAnnotation(annotation)
+        }
     }
     
     override func didReceiveMemoryWarning() {
