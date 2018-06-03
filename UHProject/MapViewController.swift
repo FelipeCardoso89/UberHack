@@ -207,7 +207,7 @@ class MapViewController: UIViewController {
         routerDetailView.isHidden = true
         cancelRoutes()
         hideBarButton()
-        btnNewRoute.setTitle("Nova Destino!", for: .normal)
+        btnNewRoute.setTitle("Novo Destino!", for: .normal)
     }
 }
 
@@ -263,11 +263,11 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         if (overlay is MKPolyline) {
             if mapView.overlays.count == 1 {
-                polylineRenderer.strokeColor = UIColor.black.withAlphaComponent(1.0)
+                polylineRenderer.strokeColor = UIColor.green.withAlphaComponent(1.0)
             } else if mapView.overlays.count == 2 {
-                polylineRenderer.strokeColor = UIColor.black.withAlphaComponent(0.5)
+                polylineRenderer.strokeColor = UIColor.blue.withAlphaComponent(1.0)
             } else if mapView.overlays.count == 3 {
-                polylineRenderer.strokeColor = UIColor.red
+                polylineRenderer.strokeColor = UIColor.red.withAlphaComponent(1.0)
             }
             polylineRenderer.lineWidth = 5
         }

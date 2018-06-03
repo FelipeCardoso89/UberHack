@@ -55,13 +55,13 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGo-Ek-GkV">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VcR-Bu-PAj">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                             </mapView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd0-ez-LWf">
-                                                <rect key="frame" x="98" y="222" width="179" height="44"/>
+                                                <rect key="frame" x="98" y="502" width="179" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="bWh-2W-aFp"/>
@@ -87,7 +87,7 @@
                                         </constraints>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUf-sp-lss" customClass="RouteDetailView" customModule="UHProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="274" width="375" height="280"/>
+                                        <rect key="frame" x="0.0" y="554" width="375" height="280"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="street address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryc-me-WRQ">
                                                 <rect key="frame" x="8" y="8" width="359" height="21.5"/>
@@ -96,7 +96,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-xM-oiB" customClass="CosmosView" customModule="Cosmos">
-                                                <rect key="frame" x="97.5" y="29.5" width="180" height="46.5"/>
+                                                <rect key="frame" x="87.5" y="29.5" width="200" height="46.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="3sw-78-BLW"/>
@@ -174,7 +174,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pedestrian-light" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-LJ-wt4">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-LJ-wt4">
                                                                         <rect key="frame" x="21" y="8" width="79.5" height="79.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -202,13 +202,13 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-aU-gJA" userLabel="Badge3" customClass="BadgeView" customModule="UHProject" customModuleProvider="target">
                                                                 <rect key="frame" x="264" y="4" width="120" height="120"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movimentado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMO-fp-irk">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faixa de pedreste" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMO-fp-irk">
                                                                         <rect key="frame" x="4" y="95.5" width="112" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="people" translatesAutoresizingMaskIntoConstraints="NO" id="5DA-YD-9OH">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkway" translatesAutoresizingMaskIntoConstraints="NO" id="5DA-YD-9OH">
                                                                         <rect key="frame" x="21" y="8" width="79.5" height="79.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -344,8 +344,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pedestrian-light" width="225" height="225"/>
-        <image name="people" width="225" height="225"/>
-        <image name="sidewalk" width="275" height="183"/>
+        <image name="light" width="512" height="512"/>
+        <image name="sidewalk" width="217" height="232"/>
+        <image name="walkway" width="1024" height="573"/>
     </resources>
 </document>
