@@ -20,6 +20,8 @@
 		3EA2145720C3C1B600E2549E /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2145620C3C1B600E2549E /* BadgeCollectionViewCell.swift */; };
 		3EA2145920C3C97000E2549E /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2145820C3C97000E2549E /* BadgeView.swift */; };
 		CE193D96190E889B686514FC /* Pods_UHProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06BCB8D6181A86C3514578A /* Pods_UHProject.framework */; };
+		D8251BBB20C3D35C009B9B8A /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8251BBA20C3D35C009B9B8A /* Badge.swift */; };
+		D8251BBD20C3D36A009B9B8A /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8251BBC20C3D36A009B9B8A /* BadgeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		3EA2145620C3C1B600E2549E /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3EA2145820C3C97000E2549E /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		7F2E47F48BFB576CE578E9D7 /* Pods-UHProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UHProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-UHProject/Pods-UHProject.release.xcconfig"; sourceTree = "<group>"; };
+		D8251BBA20C3D35C009B9B8A /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		D8251BBC20C3D36A009B9B8A /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		E1DDAB90F927DD4B139ECE6E /* Pods-UHProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UHProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UHProject/Pods-UHProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F06BCB8D6181A86C3514578A /* Pods_UHProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UHProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -112,6 +116,8 @@
 				3E43172020C22AFC00808E49 /* Assets.xcassets */,
 				3E43172220C22AFC00808E49 /* LaunchScreen.storyboard */,
 				3E43172520C22AFC00808E49 /* Info.plist */,
+				D8251BBA20C3D35C009B9B8A /* Badge.swift */,
+				D8251BBC20C3D36A009B9B8A /* BadgeView.swift */,
 			);
 			path = UHProject;
 			sourceTree = "<group>";
@@ -273,6 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8251BBD20C3D36A009B9B8A /* BadgeView.swift in Sources */,
+				D8251BBB20C3D35C009B9B8A /* Badge.swift in Sources */,
 				3EA2145920C3C97000E2549E /* BadgeView.swift in Sources */,
 				3E43171C20C22AF500808E49 /* ViewController.swift in Sources */,
 				3E33137C20C398A9007F6FCF /* RouteDetailView.swift in Sources */,

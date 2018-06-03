@@ -45,10 +45,12 @@ class MapViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
         
+        mainMapView.register(BadgeView.self,
+                             forAnnotationViewWithReuseIdentifier: "marker")
+        
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
         longPressGesture.minimumPressDuration = 0.5
-        self.mainMapView.addGestureRecognizer(longPressGesture)
-
+        
         mainMapView.addGestureRecognizer(longPressGesture)
         
     }
@@ -58,11 +60,8 @@ class MapViewController: UIViewController {
             let point = gesture.location(in: self.mainMapView)
             let coordinate = self.mainMapView.convert(point, toCoordinateFrom: self.mainMapView)
             print(coordinate)
-            var annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            annotation.title = "Title"
-            annotation.subtitle = "subtitle"
-            self.mainMapView.addAnnotation(annotation)
+            var badge = Badge(title: "test", coordinate: coordinate)
+            self.mainMapView.addAnnotation(badge)
         }
     }
     
@@ -359,7 +358,29 @@ extension MapViewController: UICollectionViewDataSource, UICollectionViewDelegat
         }
     }
     
-    
+
+    // 1
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // 2
+        guard let annotation = annotation as? Badge else { return nil }
+        // 3
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        // 4
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            // 5
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
+
 }
 
 
