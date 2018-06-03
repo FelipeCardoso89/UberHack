@@ -13,12 +13,30 @@ import GooglePlacePicker
 
 class MapViewController: UIViewController {
     
+    @IBOutlet weak var btnCancelRoute: UIBarButtonItem!
+    @IBOutlet weak var btnNewRoute: UIButton!
     @IBOutlet weak var mainMapView: MKMapView!
+    @IBOutlet weak var routerDetailView: RouteDetailView!
     
     let locationManager = CLLocationManager()
+    var isShowingRoute = false
+    
+    var routeBadges = [
+        RouteBadge(id:"free-sidewalk", name:"Calçadas Livres", image: ""),
+        RouteBadge(id:"light", name:"Iluminado", image: ""),
+        RouteBadge(id:"people", name:"Local Movimentado", image: ""),
+        RouteBadge(id:"hole-sidewalk", name:"Calçada com buraco", image: ""),
+        RouteBadge(id:"crossing-road", name:"Faixa de pedestre", image: ""),
+        RouteBadge(id:"no-light-sinalization", name:"Sem luz de pedestre", image: ""),
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hideBarButton()
+        
+        routerDetailView.tableView.delegate = self
+        routerDetailView.tableView.register(PlaceTableViewCell.self, forCellReuseIdentifier: String(describing: PlaceTableViewCell.self))
         
         mainMapView.delegate = self
         mainMapView.showsScale = true
@@ -73,20 +91,11 @@ class MapViewController: UIViewController {
                 }
             }
             
-            print("\(response.routes)")
-            
             for i in 0..<response.routes.count {
                 self.plotPolyline(route: response.routes[i])
                 self.renderWeightedPolyline(mapView: self.mainMapView, coordinates: response.routes[i].polyline.coordinates)
             }
-            
-//            let route = response.routes[0]
-//            weakSelf.mainMapView.add(route.polyline, level: .aboveRoads)
-//
-//            let routeRect = route.polyline.boundingMapRect
-//            weakSelf.mainMapView.setRegion(MKCoordinateRegionForMapRect(routeRect), animated: true)
         }
-        
     }
     
     func renderWeightedPolyline(mapView: MKMapView, coordinates: [CLLocationCoordinate2D]) {
@@ -132,6 +141,31 @@ class MapViewController: UIViewController {
         }
     }
     
+    func showRouteDetail(for place: GMSPlace) {
+        routerDetailView.title.text = place.formattedAddress
+        routerDetailView.isHidden = false
+    }
+    
+    func cancelRoutes() {
+        mainMapView.removeOverlays(mainMapView.overlays)
+        removeAllAnnotationsFromMap(mapView: mainMapView)
+    }
+    
+    
+    func startRoute() {
+        
+    }
+    
+    func showBarButton() {
+        btnCancelRoute.isEnabled = true
+        btnCancelRoute.tintColor = nil
+    }
+    
+    func hideBarButton() {
+        btnCancelRoute.isEnabled = false
+        btnCancelRoute.tintColor = UIColor.clear
+    }
+    
     private func placeStartAndEndPin(mapView: MKMapView, userLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
         
         let userAnnotation = MKPointAnnotation()
@@ -150,13 +184,38 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func pickNewDestination(_ sender: Any) {
-        showPlacePicker()
+        
+        if routerDetailView.isHidden {
+            showPlacePicker()
+        } else {
+            btnNewRoute.setTitle("Encerrar caminhada!", for: .normal)
+            print("Start route!")
+        }
     }
     
+    @IBAction func cancelRouter(_ sender: Any) {
+        routerDetailView.isHidden = true
+        cancelRoutes()
+        hideBarButton()
+        btnNewRoute.setTitle("Nova Destino!", for: .normal)
+    }
 }
 
 
 extension MapViewController: GMSPlacePickerViewControllerDelegate {
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        viewController.dismiss(animated: true) {
+            
+            guard let weakSelf = self as? MapViewController else {
+                return
+            }
+            
+            
+            weakSelf.mainMapView.removeOverlays(weakSelf.mainMapView.overlays)
+            weakSelf.isShowingRoute = false
+        }
+    }
     
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
         viewController.dismiss(animated: true) {
@@ -169,11 +228,10 @@ extension MapViewController: GMSPlacePickerViewControllerDelegate {
                 return
             }
             
-            weakSelf.mainMapView.removeOverlays(weakSelf.mainMapView.overlays)
+            weakSelf.btnNewRoute.setTitle("Iniciar Caminhada", for: .normal)
+            weakSelf.showBarButton()
             weakSelf.traceRoute(from: userLocation, to: place.coordinate)
-            
-            // removes all annotations (pins)
-            weakSelf.removeAllAnnotationsFromMap(mapView: weakSelf.mainMapView)
+            weakSelf.showRouteDetail(for: place)
         }
     }
 }
@@ -190,16 +248,14 @@ public extension MKPolyline {
 }
 
 extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
-    
-    
-    
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         if (overlay is MKPolyline) {
             if mapView.overlays.count == 1 {
-                polylineRenderer.strokeColor = UIColor.blue
+                polylineRenderer.strokeColor = UIColor.black.withAlphaComponent(1.0)
             } else if mapView.overlays.count == 2 {
-                polylineRenderer.strokeColor = UIColor.green
+                polylineRenderer.strokeColor = UIColor.black.withAlphaComponent(0.5)
             } else if mapView.overlays.count == 3 {
                 polylineRenderer.strokeColor = UIColor.red
             }
@@ -207,6 +263,23 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         }
         return polylineRenderer
     }
-    
-    
 }
+
+extension MapViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PlaceTableViewCell.self)) as? PlaceTableViewCell {
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+        
+    }
+
+}
+
