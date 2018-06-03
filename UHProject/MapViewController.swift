@@ -11,7 +11,7 @@ import MapKit
 import GooglePlacePicker
 
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var btnCancelRoute: UIBarButtonItem!
     @IBOutlet weak var btnNewRoute: UIButton!
@@ -195,8 +195,18 @@ class MapViewController: UIViewController {
         
         if routerDetailView.isHidden {
             showPlacePicker()
-        } else if ( btnNewRoute.currentTitle == "") {
-            //mover usuário
+        } else if ( btnNewRoute.currentTitle == "Encerrar caminhada!") {
+            
+            //TODO: mover usuário
+            
+            let controller = PopupViewController()
+            controller.modalPresentationStyle = UIModalPresentationStyle.popover
+            let popController = controller.popoverPresentationController
+            popController?.permittedArrowDirections = .any
+            popController?.delegate = self
+            
+            self.present(controller, animated: true, completion: nil)
+
         } else {
             btnNewRoute.setTitle("Encerrar caminhada!", for: .normal)
             routerDetailView.isHidden = true
