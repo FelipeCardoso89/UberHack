@@ -95,6 +95,8 @@ class MapViewController: UIViewController {
         
         mainMapView.add(route.polyline)
         
+        self.placeStartAndEndPin(mapView: mainMapView, userLocation: route.polyline.coordinates[0], destinationLocation: route.polyline.coordinates.last!)
+        
         if mainMapView.overlays.count == 1 {
             mainMapView.setVisibleMapRect(
                 route.polyline.boundingMapRect,
@@ -109,16 +111,26 @@ class MapViewController: UIViewController {
         }
     }
     
+    private func placeStartAndEndPin(mapView: MKMapView, userLocation: CLLocationCoordinate2D, destinationLocation: CLLocationCoordinate2D) {
+        
+        let userAnnotation = MKPointAnnotation()
+        userAnnotation.coordinate = CLLocationCoordinate2D(latitude: userLocation.latitude, longitude: userLocation.longitude)
+        mapView.addAnnotation(userAnnotation)
+        
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.coordinate = CLLocationCoordinate2D(latitude: destinationLocation.latitude, longitude: destinationLocation.longitude)
+        mapView.addAnnotation(destinationAnnotation)
+        
+    }
+    
     @IBAction func pickNewDestination(_ sender: Any) {
         showPlacePicker()
     }
     
 }
 
+
 extension MapViewController: GMSPlacePickerViewControllerDelegate {
-    
-    
-    
     
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
         viewController.dismiss(animated: true) {
@@ -133,7 +145,19 @@ extension MapViewController: GMSPlacePickerViewControllerDelegate {
             
             weakSelf.mainMapView.removeOverlays(weakSelf.mainMapView.overlays)
             weakSelf.traceRoute(from: userLocation, to: place.coordinate)
+            //TODO: remove pins?
         }
+    }
+}
+
+public extension MKPolyline {
+    public var coordinates: [CLLocationCoordinate2D] {
+        var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid,
+                                              count: self.pointCount)
+        
+        self.getCoordinates(&coords, range: NSRange(location: 0, length: self.pointCount))
+        
+        return coords
     }
 }
 
