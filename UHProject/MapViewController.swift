@@ -77,6 +77,7 @@ class MapViewController: UIViewController {
             
             for i in 0..<response.routes.count {
                 self.plotPolyline(route: response.routes[i])
+                self.renderWeightedPolyline(mapView: self.mainMapView, coordinates: response.routes[i].polyline.coordinates)
             }
             
 //            let route = response.routes[0]
@@ -86,6 +87,26 @@ class MapViewController: UIViewController {
 //            weakSelf.mainMapView.setRegion(MKCoordinateRegionForMapRect(routeRect), animated: true)
         }
         
+    }
+    
+    func renderWeightedPolyline(mapView: MKMapView, coordinates: [CLLocationCoordinate2D]) {
+        
+        var i = 0
+        var increment = coordinates.count/3
+        while i + increment < coordinates.count {
+            var splittedCoordinates = coordinates[i...i+increment]
+            
+            let geodesic = MKPolyline(coordinates: Array(splittedCoordinates), count: splittedCoordinates.count)
+            mapView.add(geodesic)
+            
+            let polylineBoundingRect =  MKMapRectUnion(mainMapView.visibleMapRect, geodesic.boundingMapRect)
+            mainMapView.setVisibleMapRect(
+                polylineBoundingRect,
+                edgePadding: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0),
+                animated: false)
+            
+            i += increment
+        }
     }
     
     func plotPolyline(route: MKRoute) {
