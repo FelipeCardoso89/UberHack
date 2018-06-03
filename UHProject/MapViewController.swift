@@ -114,7 +114,7 @@ class MapViewController: UIViewController {
     func renderWeightedPolyline(mapView: MKMapView, coordinates: [CLLocationCoordinate2D]) {
         
         var i = 0
-        var increment = coordinates.count/3
+        var increment = coordinates.count/4
         while i + increment < coordinates.count {
             var splittedCoordinates = coordinates[i...i+increment]
             
@@ -263,7 +263,7 @@ extension MapViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         if (overlay is MKPolyline) {
             if mapView.overlays.count == 1 {
-                polylineRenderer.strokeColor = UIColor.green.withAlphaComponent(1.0)
+                polylineRenderer.strokeColor = UIColor.orange.withAlphaComponent(1.0)
             } else if mapView.overlays.count == 2 {
                 polylineRenderer.strokeColor = UIColor.blue.withAlphaComponent(1.0)
             } else if mapView.overlays.count == 3 {

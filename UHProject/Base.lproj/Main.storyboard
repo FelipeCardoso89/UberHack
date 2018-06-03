@@ -10,22 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
-        <scene sceneID="UMy-8E-AuD">
-            <objects>
-                <viewController id="xCR-Kr-xDl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EiA-Gx-dJd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="OxW-N9-u5g"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="5Nj-Kg-qfV"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eUZ-a7-dQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1025" y="442"/>
-        </scene>
         <!--Item-->
         <scene sceneID="0b9-1p-an4">
             <objects>
@@ -41,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfp-wb-uKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="-346"/>
+            <point key="canvasLocation" x="926" y="109"/>
         </scene>
         <!--Mapa-->
         <scene sceneID="PNo-QR-UA9">
@@ -134,7 +118,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXk-nD-pnk" customClass="BadgeView" customModule="UHProject" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="4" width="120" height="120"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calçada Livre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKO-dH-att">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calçada Livre" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKO-dH-att">
                                                                         <rect key="frame" x="4" y="95.5" width="112" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                         <nil key="textColor"/>
@@ -168,7 +152,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhZ-Nl-Hfa" customClass="BadgeView" customModule="UHProject" customModuleProvider="target">
                                                                 <rect key="frame" x="136" y="4" width="120" height="120"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iluminação" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyV-KU-Pk8">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iluminação" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyV-KU-Pk8">
                                                                         <rect key="frame" x="4" y="95.5" width="112" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                         <nil key="textColor"/>
@@ -202,7 +186,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-aU-gJA" userLabel="Badge3" customClass="BadgeView" customModule="UHProject" customModuleProvider="target">
                                                                 <rect key="frame" x="264" y="4" width="120" height="120"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faixa de pedreste" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMO-fp-irk">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faixa de pedreste" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMO-fp-irk">
                                                                         <rect key="frame" x="4" y="95.5" width="112" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                         <nil key="textColor"/>
@@ -322,7 +306,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1848.8" y="-347.67616191904051"/>
+            <point key="canvasLocation" x="1750" y="108"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zd2-eb-jqu">
@@ -335,7 +319,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="bJx-Jo-GSA" kind="relationship" relationship="viewControllers" id="elg-Kd-nWW"/>
-                        <segue destination="xCR-Kr-xDl" kind="relationship" relationship="viewControllers" id="9Dy-eY-bk1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WfE-Pg-ZMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
